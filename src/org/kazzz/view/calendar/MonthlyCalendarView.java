@@ -540,7 +540,7 @@ public class MonthlyCalendarView extends View {
      * @param calendar calendarをセットします
      */
     public void setCalendar(Calendar calendar) {
-        this.calendar = (Calendar)calandar.clone();
+        this.calendar = (Calendar)calendar.clone();
         this.setToDay(today);
         this.calcCalendarMatrix();
     }
