@@ -373,8 +373,9 @@ public class CalendarView extends LinearLayout {
             //変量 < 閾値の場合タップ
             MonthlyCalendarView currentView = 
                 (MonthlyCalendarView)viewFlipper.getCurrentView();
+
             if ( currentView != null ) {
-                boolean result = currentView.performClick(); //対象ビューのクリックを発生させる
+            	boolean result = currentView.selectFrame();
                 performSelectionCalendar(currentView);
                 return result;
             }

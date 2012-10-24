@@ -44,7 +44,8 @@ public class NumberPicker extends LinearLayout {
     private static final String TAG = "NumberPicker";
     private static final String NUMBER_PICKER_CLASS_NAME;
     static {
-        final int sdkVersion = Build.VERSION.SDK_INT;
+        final int sdkVersion = Integer.valueOf(Build.VERSION.SDK);
+        
         // 8=Build.VERSION_CODES.FROYO
         if (sdkVersion < 8) {
             NUMBER_PICKER_CLASS_NAME = "com.android.internal.widget.NumberPicker";

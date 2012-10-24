@@ -453,18 +453,23 @@ public class MonthlyCalendarView extends View {
         }
         this.invalidate();
     }
-    /* (non-Javadoc)
-     * @see android.view.View#onTouchEvent(android.view.MotionEvent)
-     */
+
+    
+    float lastTouchX;
+    float lastTouchY;
+    
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() != MotionEvent.ACTION_DOWN) {
-            return super.onTouchEvent(event);
-        }
-        int col = (int)(event.getX() / this.cellWidth);
+        lastTouchX = event.getX();
+        lastTouchY = event.getY();
+        return false; //false 親にイベントを戻す  true ここでイベント止める
+    }
+    
+    public boolean selectFrame() {
+        int col = (int)(lastTouchX / this.cellWidth);
 
         //曜日見出しをオフセットとする
-        float y = event.getY() - this.captionHeight;
+        float y = lastTouchY - this.captionHeight;
         if ( y <= 0 ) {
             this.select(col, 0);
         } else {
@@ -473,6 +478,8 @@ public class MonthlyCalendarView extends View {
         //Log.d(TAG, "onTouchEvent: x " + selCol + ", y " + selRow);
         return false; //false 親にイベントを戻す  true ここでイベント止める
     }
+
+
     /* (non-Javadoc)
      * @see android.view.View#onTrackballEvent(android.view.MotionEvent)
      */
