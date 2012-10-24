@@ -144,7 +144,8 @@ public class CalendarView extends LinearLayout {
      * @param calandar calandarをセットします
      */
     public void setCalandar(java.util.Calendar calandar) {
-        this.calendar = calandar;
+
+        this.calendar = (Calendar)calandar.clone();
         
         if ( this.viewFlipper != null ) {
             MonthlyCalendarView view = (MonthlyCalendarView)
