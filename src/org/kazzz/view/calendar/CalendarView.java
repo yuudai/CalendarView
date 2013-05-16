@@ -153,7 +153,7 @@ public class CalendarView extends LinearLayout {
 
             if ( view != null ) { //viewはnullもあり得る
                 view.setCalendar(this.calendar);
-                if ( this.calendar.equals(calandar)) {
+                if ( this.calendar.equals(calendar)) {
                     view.setToDay(this.calendar.get(Calendar.DAY_OF_MONTH));
                 }
             }
